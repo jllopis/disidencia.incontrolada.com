@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Disidencia Incontrolada</title>
-    <link>https://jllopis.github.io/disidencia.incontrolada.com/</link>
+    <link>https://disidencia.incontrolada.com/</link>
     <description>Recent content on Disidencia Incontrolada</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Mon, 11 Dec 2023 00:40:40 +0100</lastBuildDate><atom:link href="https://jllopis.github.io/disidencia.incontrolada.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Dec 2023 00:40:40 +0100</lastBuildDate><atom:link href="https://disidencia.incontrolada.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>https://jllopis.github.io/disidencia.incontrolada.com/docs/test/</link>
+      <link>https://disidencia.incontrolada.com/docs/test/</link>
       <pubDate>Mon, 11 Dec 2023 00:40:40 +0100</pubDate>
       
-      <guid>https://jllopis.github.io/disidencia.incontrolada.com/docs/test/</guid>
+      <guid>https://disidencia.incontrolada.com/docs/test/</guid>
       <description></description>
     </item>
     
