@@ -206,6 +206,56 @@
                 posts "\n")
      "\n</div>\n"))))
 
+;; Genera el HTML del post destacado (el primero con tag 'destacado')
+;; Versión corregida: usar catch/throw en vez de cl-return
+(defun gimlab-generate-featured-post-html ()
+  "Genera el HTML para el post destacado (primer post con tag 'destacado'). Si no hay, muestra el más reciente."
+  (let ((posts-dir (expand-file-name "posts" (file-name-directory (or load-file-name buffer-file-name default-directory))))
+        (draft-pattern (gimlab-generate-exclude-pattern))
+        post-list)
+    (when (file-directory-p posts-dir)
+      (catch 'found-featured
+        (dolist (file (directory-files posts-dir t "\\.org$"))
+          (let ((file-name (file-name-nondirectory file)))
+            (unless (or (string-match-p draft-pattern file-name)
+                        (string= file-name "sitemap.org"))
+              (with-temp-buffer
+                (insert-file-contents file)
+                (goto-char (point-min))
+                (let ((tags (when (re-search-forward "^#\\+TAGS:\\s-*\\(.+\\)$" nil t)
+                              (match-string 1)))
+                      (title (progn (goto-char (point-min)) (if (re-search-forward "^#\\+TITLE:\\s-*\\(.+\\)$" nil t) (string-trim (match-string 1)) "Sin título")))
+                      (date (progn (goto-char (point-min)) (if (re-search-forward "^#\\+DATE:\\s-*\\(.+\\)$" nil t) (string-trim (match-string 1)) "")))
+                      (author (progn (goto-char (point-min)) (if (re-search-forward "^#\\+AUTHOR:\\s-*\\(.+\\)$" nil t) (string-trim (match-string 1)) "")))
+                      (file-base (file-name-sans-extension file-name))
+                      (header-image (gimlab-find-header-image (file-name-sans-extension file-name))))
+                  (push (list :title title :date date :author author :file-base file-base :header-image header-image :tags tags) post-list)
+                  (when (and tags (string-match-p "\\bdestacado\\b" tags))
+                    (throw 'found-featured
+                           (format "<div class=\"latest-post-section\">\n  <a href=\"posts/%s.html\"><img src=\"img/%s\" alt=\"Imagen del último artículo\" class=\"latest-post-image\"></a>\n  <div class=\"latest-post-overlay\">\n    <h2><a href=\"posts/%s.html\">%s</a></h2>\n    <div class=\"post-meta\"><strong>%s</strong> | %s</div>\n  </div>\n</div>\n"
+                                   file-base
+                                   (or header-image "banner.png")
+                                   file-base
+                                   title
+                                   (or author "Autor")
+                                   date)))))))))
+      ;; Si no hay destacado, usar el post más reciente
+      (when post-list
+        (setq post-list (sort post-list (lambda (a b) (string> (plist-get a :date) (plist-get b :date)))))
+        (let* ((post (car post-list))
+               (file-base (plist-get post :file-base))
+               (header-image (plist-get post :header-image))
+               (title (plist-get post :title))
+               (author (plist-get post :author))
+               (date (plist-get post :date)))
+          (format "<div class=\"latest-post-section\">\n  <a href=\"posts/%s.html\"><img src=\"img/%s\" alt=\"Imagen del último artículo\" class=\"latest-post-image\"></a>\n  <div class=\"latest-post-overlay\">\n    <h2><a href=\"posts/%s.html\">%s</a></h2>\n    <div class=\"post-meta\"><strong>%s</strong> | %s</div>\n  </div>\n</div>\n"
+                  file-base
+                  (or header-image "banner.png")
+                  file-base
+                  title
+                  (or author "Autor")
+                  date))))))
+
 ;; Set up the project structure with dynamic exclude pattern
 (setq org-publish-project-alist
       `(("gimlab-blog-posts"
@@ -266,9 +316,17 @@
         ("gimlab-blog"
          :components ("gimlab-blog-posts" "gimlab-static-pages" "gimlab-css" "gimlab-img" "gimlab-posts-img"))))
 
-;; Regenerate post-list.html before publishing
-(with-temp-file "post-list.html" 
+
+;; Regenerar post-list.html antes de publicar
+(with-temp-file "post-list.html"
   (insert (gimlab-generate-post-list-html)))
+
+;; Regenerar featured-post.html antes de publicar
+(with-temp-file "featured-post.html"
+  (let ((featured (gimlab-generate-featured-post-html)))
+    (if featured
+        (insert featured)
+      (insert "<div class=\"latest-post-section\">No hay post destacado.</div>"))))
 
 ;; Publish the blog
 (org-publish "gimlab-blog" t)
