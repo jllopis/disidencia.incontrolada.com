@@ -3,7 +3,7 @@
 #+DESCRIPTION: La cancelación como nueva ordalía: presión social, moralismo viral y linchamiento digital en tiempos de like y furia.
 #+AUTHOR: Joan Llopis
 #+DATE: 2025-07-27
-#+TAGS: filosofía, opinión, sociedad, destacado
+#+TAGS: destacado, filosofía, opinión, sociedad
 
 #+COMMENT: RELACIÓN DE ASPECTO DE IMÁGENES
 #+COMMENT: Para una visualización perfecta en la lista de posts, usa imágenes con relación de aspecto 5:4 (ejemplo: 1000x800px, 500x400px, etc.).

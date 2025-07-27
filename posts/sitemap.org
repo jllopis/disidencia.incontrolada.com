@@ -1,5 +1,4 @@
 #+TITLE: Sitemap
 
 - [[file:cancelacion-en-la-red-la-ordalia-del-sXXI.org][Cancelación en la red: la ordalía del siglo XXI]]
-- [[file:articulo-ejemplo.org][Este es un artículo de ejemplo]]
 - [[file:reflexiones-modernas.org][Reflexiones sobre la Filosofía Moderna]]
