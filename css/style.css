@@ -598,24 +598,67 @@ body {
 }
 
 /* Footer del sitio */
-/* Footer del sitio - 100vw real sin margen derecho extra */
 .site-footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    max-width: 100vw;
-    box-sizing: border-box;
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 1rem 3rem 1rem;
+  margin-top: 4rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.site-footer p {
-    margin: 0;
-    opacity: 0.6;
+/* Menú de enlaces arriba */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  opacity: 0.8;
+}
+
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* Texto central */
+.footer-text {
+  margin: 0;
+  opacity: 0.6;
+  max-width: 80ch;
+}
+
+/* Copyright específico */
+.copyright {
+  order: 2;
+}
+
+/* Pie técnico abajo a la derecha */
+.footer-generated {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  text-align: right;
+}
+.footer-generated a {
+  color: inherit;
+  text-decoration: underline dotted;
 }
 
 /* ================================ */
@@ -985,20 +1028,6 @@ img {
     margin: 1.5rem auto; /* Centrar y añadir margen */
     border: 1px solid #eee;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Pie de Página */
-.footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid #ddd; /* Borde ligeramente más oscuro */
-    font-size: 1rem; /* Ligeramente más grande */
-    color: #666; /* Color un poco más oscuro */
-    text-align: center;
-}
-
-.footer p {
-    margin: 0.5rem 0;
 }
 
 /* Post Content Styling - Formato Uniforme para Todos los Posts */
