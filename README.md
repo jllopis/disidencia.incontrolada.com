@@ -1,28 +1,31 @@
-# Blog Profesional de Filosofía
+# Disidencia Incontrolada
 
-## 📋 Descripción
+## Descripción
 
-Blog estático profesional generado con **Emacs org-publish**, diseñado para publicar artículos de filosofía con un diseño moderno, responsive y mantenible.
+Blog generado con **Emacs org-publish**, diseñado para publicar artículos de poco interés, con un diseño moderno, responsive y mantenible.
 
-## ✨ Características
+Puede servir de modelo para quien quiera publicar un blog de manera sencilla a partir de [org-mode](https://orgmode.org/org.html) y un poquito de `elisp`para añadir funcionalidad.
 
-- **🎨 Diseño Moderno**: CSS responsive con tipografía profesional
-- **📱 Mobile-First**: Optimizado para todos los dispositivos
-- **⚡ Generación Automática**: Sistema de build completamente automatizado
-- **🏷️ Posts Destacados**: Selección automática del último post con tag "destacado"
-- **📊 SEO Optimizado**: Meta tags, Open Graph y estructura semántica
-- **🔄 Sistema de Backups**: Protección automática de contenido original
-- **📚 Documentación Completa**: Guías detalladas para uso y mantenimiento
+## Características
 
-## 🛠️ Tecnologías
+- **Diseño Moderno**: CSS responsive con tipografía profesional
+- **Mobile-First**: Optimizado para todos los dispositivos
+- **Generación Automática**: Sistema de build completamente automatizado
+- **Posts Destacados**: Selección automática del último post con tag "destacado"
+- **SEO Optimizado**: Meta tags, Open Graph y estructura semántica
+- **Sistema de Backups**: Protección automática de contenido original
+- **Documentación Completa**: Guías detalladas para uso y mantenimiento
+
+## Tecnologías
 
 - **Emacs org-mode**: Generación de contenido
 - **org-publish**: Sistema de publicación estática
+- **Emacs Lisp**: Personalización de la generación
 - **CSS3**: Estilos modernos y responsive
 - **Bash**: Scripts de automatización
 - **Git**: Control de versiones
 
-## 🚀 Uso Rápido
+## Uso Rápido
 
 ### Construcción del Sitio
 ```bash
@@ -36,7 +39,6 @@ Blog estático profesional generado con **Emacs org-publish**, diseñado para pu
 ├── img/               # Imágenes y assets
 ├── docs/              # Documentación
 ├── templates/         # Plantillas para nuevos posts
-├── backups/           # Respaldos automáticos
 ├── publish.el         # Configuración org-publish
 └── build.sh           # Script de construcción
 ```
@@ -50,16 +52,23 @@ Blog estático profesional generado con **Emacs org-publish**, diseñado para pu
 
 2. **Editar el contenido** en `posts/mi-nuevo-post.org`
 
-3. **Añadir imagen** (opcional): `posts/mi-nuevo-post.png`
+3. **Añadir imagen**:
+La imagen se muestra con el artículo y debe estar presente en el directorio `img/`. Por convenio, toma el mismo nombre que el post con la extensión del tipo de imagen.
+
+En el ejemplo sería `img/mi-nuevo-post.png`
 
 4. **Construir el sitio**:
    ```bash
    ./build.sh
    ```
 
-## 📖 Estructura de Posts
+5. **Publicar**:
 
-Cada post debe seguir esta estructura:
+Como se utiliza Github Pages, existe el fichero `.github/workflows/deploy.yml`que contiene las instrucciones para el despliegue en github. Esto se realiza del modo habitual: `git push`😊
+
+## Estructura de Posts
+
+Cada post debe seguir esta estructura (`templates/post-template.org`):
 
 ```org
 #+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil html-preamble:nil
@@ -71,56 +80,57 @@ Cada post debe seguir esta estructura:
 #+DATE: 2025-07-26
 #+TAGS: destacado, filosofía, etiquetas
 
-#+HTML: <h1 class="site-title">Mi Blog de Filosofía</h1>
-#+HTML: <div class="navigation"><p><a href="../index.html">Inicio</a> <a href="../about.html">Sobre Mí</a></p></div>
-#+HTML: <div class="post-header-section">
-#+HTML:   <h1 class="post-title">Título del Post</h1>
-#+HTML:   <div class="post-meta">
-#+HTML:     <span class="post-author">Tu Nombre</span>
-#+HTML:     <span class="post-date">2025-07-26</span>
-#+HTML:   </div>
-#+HTML:   <img src="../img/nombre-imagen.png" alt="Imagen del artículo" class="post-header-image">
-#+HTML: </div>
+#+COMMENT: RELACIÓN DE ASPECTO DE IMÁGENES
+#+COMMENT: Para una visualización perfecta en la lista de posts, usa imágenes con relación de aspecto 5:4 (ejemplo: 1000x800px, 500x400px, etc.).
+#+COMMENT: El CSS fuerza el recorte y escalado, pero la relación 5:4 evita espacios vacíos o recortes indeseados.
 
-* Contenido del Post
+* Introducción
 
-Tu contenido aquí...
+Aquí va el contenido principal del post. Puedes usar todas las funcionalidades de org-mode:
 
-#+HTML: <div class="sidebar-section">
-#+HTML:   <h3>Categorías</h3>
-#+HTML:   <ul class="categories-list">
-#+HTML:     <li><a href="#">Categoría 1 <span class="category-count">2</span></a></li>
-#+HTML:   </ul>
-#+HTML: </div>
+- Listas
+- *Texto en negrita*
+- /Texto en cursiva/
+- =Código inline=
 
-#+HTML: <div class="footer"><p>Copyright © 2025 Tu Nombre. Creado con Emacs y org-mode.</p></div>
+** Subsección
+
+Puedes añadir subsecciones para organizar mejor el contenido.
+
+* Conclusiones
+
+Resumen final del artículo.
+
+#+BEGIN_COMMENT
+INSTRUCCIONES PARA USAR ESTE TEMPLATE:
+
+1. Copia este archivo: cp templates/post-template.org posts/mi-nuevo-post.org
+2. Edita el TITLE, DESCRIPTION, AUTHOR, DATE y TAGS
+3. Si tienes una imagen, nómbrala igual que el archivo: mi-nuevo-post.png
+4. Escribe tu contenido usando sintaxis org-mode
+5. Ejecuta ./build.sh para generar el sitio
+
+El template automáticamente añadirá:
+- Header del sitio y navegación
+- Metadata del post (autor, fecha)
+- Imagen de cabecera (si existe)
+- Sidebar con categorías
+- Footer del sitio
+
+#+END_COMMENT
 ```
 
-## 🏷️ Sistema de Posts Destacados
+## Sistema de Posts Destacados
 
 - **Tag "destacado"**: El último post con este tag aparece prominentemente en la home
-- **Automático**: Se actualiza cada vez que ejecutas `./build.sh`
+- **Automático**: Se actualiza cada vez que ejecutas `./build.sh` desde la función implementada en `publish.el`
 - **Flexible**: Simplemente añade o quita el tag según necesites
 
-## 📁 Documentación Completa
+## Documentación Completa
 
 - `docs/README-SISTEMA-COMPLETO.md`: Guía completa del sistema
 - `docs/FEATURED-SYSTEM.md`: Cómo funciona el sistema de posts destacados
 - `docs/SISTEMA-TEMPLATES-AUTOMATICO.md`: Sistema completo de templates y gestión de borradores
-
-## 🔒 Seguridad y Backups
-
-- **Backups automáticos**: Los posts originales se respaldan antes de cualquier procesamiento
-- **No destructivo**: El sistema nunca modifica archivos originales
-- **Versionado**: Uso de Git para control de versiones completo
-
-## 🎯 Características Técnicas
-
-- **Responsive Design**: Mobile-first con breakpoints optimizados
-- **Accesibilidad**: Estructura semántica y navegación por teclado
-- **Performance**: CSS optimizado y imágenes eficientes
-- **SEO**: Meta tags, Open Graph, estructura de headings correcta
-- **Mantenibilidad**: Código limpio y bien documentado
 
 ## Recomendación para imágenes de posts
 
@@ -142,13 +152,14 @@ Para que las imágenes de las entradas se vean perfectamente alineadas y sin esp
 
 Esto asegura que la imagen ocupe todo el espacio asignado en la lista de posts, igual que en blogs profesionales como el de la APA.
 
-## 📝 Licencia
+## Licencia
 
 Este proyecto está bajo licencia MIT - ver el archivo LICENSE para detalles.
 
-## 👤 Autor
+## Autor
 
-**Joan Llopis** - [jllopis@gimlab.net](mailto:jllopis@gimlab.net)
+- **Joan Llopis**
+- **LLM**
 
 ---
 

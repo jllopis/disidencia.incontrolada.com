@@ -7,7 +7,7 @@
 #+HTML_HEAD: <title>Disidencia Incontrolada - Reflexiones y Pensamiento</title>
 #+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
-#+HTML_HEAD: <link rel="canonical" href="https://gimlab.net/">
+#+HTML_HEAD: <link rel="canonical" href="https://disidencia.incontrolada.com/">
 #+HTML_HEAD: <meta property="og:title" content="Disidencia Incontrolada">
 #+HTML_HEAD: <meta property="og:description" content="Blog con artículos que prentenden ser reflexivos y libres">
 #+HTML_HEAD: <meta property="og:type" content="website">
