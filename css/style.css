@@ -1,0 +1,1444 @@
+/* Import Google Fonts - Optimizado para rendimiento */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Sans+3:wght@400;700&family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* ================================ */
+/* PALETA DE COLORES NORD */
+/* ================================ */
+
+/* Enlaces generales - sin subrayado, resaltado solo por color */
+/* Paleta de colores NORD y gradientes definidos en :root */
+:root {
+    --nord0: #2E3440;  /* Polar Night 1 */
+    --nord1: #3B4252;  /* Polar Night 2 */
+    --nord2: #434C5E;  /* Polar Night 3 */
+    --nord3: #4C566A;  /* Polar Night 4 */
+    --nord4: #D8DEE9;  /* Snow Storm 1 */
+    --nord5: #E5E9F0;  /* Snow Storm 2 */
+    --nord6: #ECEFF4;  /* Snow Storm 3 */
+    --nord7: #8FBCBB;  /* Frost 1 */
+    --nord8: #88C0D0;  /* Frost 2 */
+    --nord9: #81A1C1;  /* Frost 3 */
+    --nord10: #5E81AC; /* Frost 4 */
+    /* Nord Aurora - Colores de acento */
+    --nord11: #BF616A; /* Aurora 1 - Rojo */
+    --nord12: #D08770; /* Aurora 2 - Naranja */
+    --nord13: #EBCB8B; /* Aurora 3 - Amarillo */
+    --nord14: #A3BE8C; /* Aurora 4 - Verde */
+    --nord15: #B48EAD; /* Aurora 5 - Púrpura */
+    /* Gradientes predefinidos */
+    --frost-gradient: linear-gradient(135deg, var(--nord7) 0%, var(--nord8) 50%, var(--nord9) 100%);
+    --polar-gradient: linear-gradient(135deg, var(--nord0) 0%, var(--nord1) 50%, var(--nord2) 100%);
+    --aurora-gradient: linear-gradient(135deg, var(--nord11) 0%, var(--nord12) 50%, var(--nord13) 100%);
+}
+
+/* ======== ESTILOS EXCLUSIVOS PARA POSTS ======== */
+.post-layout {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* Alinear el título del post exactamente con la imagen y el texto */
+/* Título y cabecera alineados y encima de la imagen */
+.post-layout .post-header-section,
+.post-layout .main-featured {
+    max-width: 700px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 0;
+}
+.post-layout .post-header-section {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    padding: 0;
+}
+.post-layout .main-featured {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding: 0;
+}
+.post-layout .main-featured img.post-header-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+    margin: 0;
+    border-radius: 0.5rem;
+}
+.post-layout .post-content h1 {
+    font-size: 2.7rem !important;
+    line-height: 1.13 !important;
+    margin-top: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+.post-layout .post-content h2 {
+    font-size: 2.1rem !important;
+    line-height: 1.18 !important;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.post-layout .post-content h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
+}
+@media (max-width: 900px) {
+  .post-layout .posts-column {
+    padding: 0 1rem;
+  }
+  .post-layout .post-content {
+    padding: 0;
+  }
+}
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: visible !important;
+}
+/* Eliminadas reglas conflictivas de ancho y margen para header/footer */
+/* Igualar cabecera de Categorías a Últimos Posts en todos los aspectos visuales */
+.main-columns .sidebar h3 {
+    display: block !important;
+    background: var(--frost-gradient) !important;
+    color: #fff !important;
+    padding: 0.6rem 1.5rem 0.4rem 1.5rem !important;
+    border-radius: 8px 8px 0 0 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    line-height: 1.2 !important;
+    font-style: normal !important;
+}
+
+/* Ocultar el título de categorías solo en páginas de posts (sidebar) */
+
+/* --- POST: Título, imagen y texto alineados y mismo ancho --- */
+.post-layout .post-header-section,
+.post-layout .main-featured,
+.post-layout .post-content {
+    max-width: 700px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 0;
+}
+.post-layout .post-header-section {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    padding: 0;
+}
+.post-layout .main-featured {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding: 0;
+}
+.post-layout .main-featured img.post-header-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+    margin: 0;
+    border-radius: 0.5rem;
+}
+.post-layout .post-content {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 1.28rem !important;
+    line-height: 1.9 !important;
+}
+
+/* Forzar tamaño de fuente en el texto del post, máxima especificidad */
+.post-layout .post-content, .post-layout .post-content p, .post-layout .post-content ul, .post-layout .post-content ol, .post-layout .post-content li {
+    font-size: 1.28rem !important;
+    line-height: 1.9 !important;
+}
+.post-layout .post-content h1 {
+    font-size: 2.3rem;
+    line-height: 1.15;
+    margin-top: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+.post-layout .post-content h2 {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.post-layout .post-content h3 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.main-columns .posts-column {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-width: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Imagen destacada en home */
+.main-featured .latest-post-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    display: block !important;
+    height: 400px !important;
+}
+
+.main-featured {
+    margin-bottom: 1.5rem !important;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    padding: 0 3rem;
+}
+
+/* --- CORRECCIÓN CRÍTICA: Forzar layout de columnas en posts y home --- */
+.main-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 320px !important;
+    gap: 3rem !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    align-items: start !important;
+    padding: 0 3rem !important;
+}
+.main-columns .posts-column {
+    min-width: 0 !important;
+}
+
+.post-content {
+    text-align: left;
+    font-size: 1.22rem;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Solo chips de categorías, sin centrado ni título, al final del post */
+/* (No se necesita regla vacía, el formato de chips ya está definido arriba) */
+
+.posts-column {
+    min-width: 0;
+}
+
+.main-columns .sidebar {
+    margin: 0;
+    max-width: 320px;
+    position: static;
+}
+.site-title a {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+}
+
+.site-title a:hover {
+    color: #005a9c !important;
+    text-decoration: none !important;
+}
+/* Reducir tamaño de texto de cabeceras de categorías y últimos posts */
+.ultimos-posts-title {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    background: var(--frost-gradient) !important;
+    color: #222 !important;
+    padding: 0.5rem 1.2rem 0.3rem 1.2rem !important;
+    border-radius: 1px 1px 1px 1px !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    font-family: 'Playfair Display', sans-serif !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.2 !important;
+}
+
+a {
+    color: var(--nord10);
+    text-decoration: none;
+    border-bottom: none;
+    transition: color 0.2s;
+}
+
+/* Estilos Generales */
+body {
+    font-family: Merryweather, sans-serif, 'Times New Roman', -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
+    font-weight: 400; /* Peso normal para el cuerpo */
+    line-height: 1.8; /* Aumentado para mejor legibilidad */
+    color: #2c2c2c; /* Ligeramente más suave que negro puro */
+    background-color: var(--nord6); /* Snow Storm 3 - fondo claro */
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem; /* 18px, tamaño ideal para lectura */
+}
+
+/* Contenedor principal para limitar ancho y centrar todo */
+/* Eliminar fondo blanco aquí, solo el área de contenido debe ser blanca */
+.content, #content {
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
+    background: transparent;
+    min-height: 100vh;
+}
+
+/* Espaciado adicional en pantallas muy grandes */
+@media (min-width: 1200px) {
+    .content, #content {
+        min-height: 100vh;
+        padding: 3rem;
+        width: 100%;
+        margin: 0;
+    }
+    .main-layout {
+        width: 100%;
+        margin: 0;
+    }
+    /* Mantener fondo Snow Storm 3 en body */
+}
+
+/* En tablets, reducir padding */
+@media (max-width: 768px) {
+    .content, #content {
+        padding: 1.5rem;
+        margin: 0;
+    }
+}
+
+/* En móviles, padding mínimo */
+@media (max-width: 480px) {
+    .content, #content {
+        padding: 1rem;
+    }
+}
+
+/* ================================ */
+/* LAYOUT PRINCIPAL CON SIDEBAR */
+/* ================================ */
+
+/* Contenedor principal con layout grid */
+/* El layout principal ahora solo define el ancho y padding, sin fondo */
+.main-layout {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+/* Área de contenido principal */
+/* El área de contenido principal es la que tiene fondo blanco */
+.content-area {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(44,44,44,0.04);
+    padding: 0 3rem 3rem 3rem;
+}
+
+/* Sidebar con categorías */
+.sidebar {
+    background: transparent;
+    padding: 0;
+    border-radius: 1px;
+    height: fit-content;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.main-layout .sidebar h3,
+.sidebar h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+    background: var(--frost-gradient) /* Nord Frost gradient */;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    border-radius: 1px;
+}
+
+.main-layout .categories-list,
+.categories-list {
+    list-style: none;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin: 0;
+    background: transparent;
+    border-radius: 0 0 8px 8px;
+}
+
+.categories-list li {
+    margin-bottom: 0.2rem;
+}
+
+.categories-list li:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0.2rem;
+}
+
+.categories-list li:first-child a {
+    padding-top: 0.5rem;
+    padding-bottom: 0.4rem;
+}
+
+.categories-list li:last-child {
+    border-bottom: none;
+}
+
+.main-layout .categories-list a,
+.categories-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    color: #2c2c2c !important;
+    text-decoration: none !important;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.main-layout .categories-list a:hover,
+.categories-list a:hover {
+    color: #005a9c !important;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+/* Selectores adicionales para mayor especificidad */
+.sidebar .categories-list a {
+    color: #2c2c2c !important;
+    text-decoration: none !important;
+    text-transform: capitalize;
+}
+
+.sidebar .categories-list a:hover {
+    color: #005a9c !important;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.category-count {
+    background: var(--nord10);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Responsive - en móviles el sidebar va abajo */
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "content"
+            "sidebar";
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .content-area {
+        padding: 2rem 1.5rem;
+    }
+    
+    .sidebar {
+        position: static;
+    }
+}
+
+/* ================================ */
+/* ESTRUCTURA DEL POST */
+/* ================================ */
+
+/* Título del post */
+.post-title {
+    font-family: 'Playfair Display', 'Arial', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: var(--nord0)  !important;
+    margin-bottom: 1rem !important; /* Compactar espacio con meta */
+    line-height: 1.3 !important;
+    text-align: left !important;
+    border-left: none !important;
+}
+
+/* Metadata del post (autor y fecha) */
+.post-meta {
+    text-align: left;
+    margin-bottom: 0.2rem;
+    margin-top: 0;
+    padding: 0 0 0 0;
+    border-bottom: none;
+    font-family: 'Playfair Display', sans-serif;
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+}
+
+.post-author {
+    font-weight: 600;
+    color: #495057;
+    font-size: 1rem;
+}
+
+.post-date {
+    color: #6c757d;
+    font-size: 1rem;
+    margin-left: 0;
+}
+
+.post-date::before {
+    content: "• ";
+    margin: 0 0.5rem;
+}
+
+/* Imagen de cabecera del post: ahora 400px de alto */
+.post-header-image {
+    width: 100% !important;
+    height: 400px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    margin-bottom: 3rem !important;
+    margin-top: 0.2rem !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    display: block !important;
+}
+
+/* Contenido del post */
+.post-content {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    color: #2c2c2c;
+}
+
+/* ================================ */
+/* HEADER Y FOOTER */
+/* ================================ */
+
+/* Header del sitio */
+.site-header {
+    /* background: var(--nord5) !important; */
+    background: color-mix(in srgb, var(--nord5) 98%, var(--nord1)) !important;
+    color: #222;
+    padding: 1.1rem 0 0.25rem 0;
+    margin-bottom: 0;
+    text-align: center;
+    box-shadow: none;
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}
+
+/* Título principal del sitio */
+.site-title {
+    font-family: 'Playfair Display', sans-serif !important;
+    font-size: 3.8rem !important;
+    font-weight: 300 !important;
+    margin: 0;
+    margin-bottom: 0;
+    text-align: center !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 0.5rem 0 1.2rem 0;
+    border: none;
+    box-shadow: none;
+    position: static;
+}
+
+.main-navigation a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    margin: 0 1.2rem;
+    color: var(--nord1) !important;
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+    border-bottom: none;
+}
+
+.main-navigation a:hover {
+    color: var(--nord10) !important;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+/* Footer del sitio */
+/* Footer del sitio - 100vw real sin margen derecho extra */
+.site-footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+.site-footer p {
+    margin: 0;
+    opacity: 0.6;
+}
+
+/* ================================ */
+/* CONTENEDOR PRINCIPAL */
+/* ================================ */
+
+/* Contenedor Principal */
+/* Eliminar fondo blanco aquí, solo .content-area lo tiene */
+#content {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+/* Compatibilidad con el layout anterior para páginas que no usen el nuevo sistema */
+#content.legacy {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem 4rem;
+}
+
+/* Media Queries - Diseño Responsivo */
+@media (max-width: 768px) {
+    body {
+        font-size: 1.1rem;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    html {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    #content {
+        padding: 1.5rem 2rem;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+    .site-title {
+        font-size: 2.2rem !important;
+    }
+    .post-list-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .post-list-image-wrapper {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+    .navigation a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Eliminado: versión antigua del título principal, solo queda la versión ligera y grande */
+
+/* Títulos de contenido (h1, h2, h3, etc.) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400; /* Más ligero y elegante */
+    color: #1a1a1a; /* Casi negro para máximo contraste */
+    line-height: 1.3; /* Mejor para títulos */
+    margin-top: 2.5rem; /* Más espacio arriba */
+    margin-bottom: 1.25rem; /* Más espacio abajo */
+}
+
+h1 {
+    font-size: 2.25rem; /* Más grande y profesional */
+    font-weight: 500; /* Ligero pero con presencia */
+}
+
+h2 {
+    font-size: 1.875rem; /* Proporcional */
+    font-weight: 400; /* Muy ligero */
+}
+
+h3 {
+    font-size: 1.5rem; /* Bien definido */
+    font-weight: 400; /* Ligero */
+}
+
+/* Navegación */
+.navigation {
+    text-align: center;
+    padding: 1.2rem 0;
+    margin-bottom: 5px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.navigation p {
+    margin: 0;
+}
+
+/* Breadcrumbs para mejor navegación */
+.breadcrumbs {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.breadcrumbs a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    color: #005a9c;
+}
+
+.breadcrumbs::before {
+    content: "📍 ";
+}
+
+/* Mejora del contraste para accesibilidad */
+.navigation a {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    color: #444; /* Mejor contraste */
+}
+
+/* Enlaces: sin subrayado SIEMPRE y por defecto */
+a, a:visited, a:active, a:focus, a:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* Mejora del contraste para accesibilidad */
+.navigation a {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    color: #444; /* Mejor contraste */
+}
+
+.navigation a:hover {
+    color: #005a9c;
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 1.5rem; /* Más espacio entre párrafos */
+    font-size: 1.125rem; /* Consistente con body */
+    line-height: 1.75; /* Óptimo para lectura */
+}
+
+/* Estilos para la lista de posts en la home */
+.post-list-container {
+    list-style: none;
+    padding-left: 0;
+}
+
+.post-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.3rem; /* Reducir el gap para dar más espacio a la imagen */
+    margin-bottom: 1.5rem; /* Más espacio entre posts */
+    padding: 1.5rem; /* Más padding interno */
+    background: #fafafa;
+    border-radius: 8px; /* Bordes más redondeados */
+    transition: transform 0.2s ease;
+}
+
+.post-list-item:hover {
+    transform: translateY(-2px);
+}
+
+.post-list-image-wrapper {
+    flex-shrink: 0;
+    width: 200px; /* Aumentar el ancho para ocupar más espacio a la izquierda */
+    height: 160px; /* Aumentar la altura para alinearse desde título hasta botón */
+    overflow: hidden;
+    border-radius: 6px; /* Bordes más redondeados para imagen más grande */
+    background-color: #f0f0f0; /* Color de fondo por si la imagen no carga */
+    position: relative; /* Para control absoluto del contenido */
+}
+
+.post-list-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; /* Centrar la imagen para mejor recorte */
+    transition: transform 0.3s ease;
+    display: block; /* Asegurar que no haya espacios extra */
+}
+
+.post-list-image:hover {
+    transform: scale(1.05);
+}
+
+.post-list-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.main-layout .post-list-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.0625rem !important; /* Reducir espacio inferior al mínimo */
+    font-size: 1.4rem;
+    font-weight: 400; /* Más ligero y elegante */
+}
+
+/* Fondo para el título en la lista de posts, igual que categorías */
+.post-list-content h3 {
+    background: none;
+    color: #2c2c2c !important;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0.0625rem !important;
+}
+
+.post-list-content h3 a {
+    color: #2c2c2c !important;
+    text-decoration: none;
+}
+
+.post-list-content h3 a:hover {
+    color: #005a9c !important;
+}
+
+.post-list-content .post-meta {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 0.2rem; /* Reducir margen para acercar el resumen */
+    margin-top: 0; /* Eliminar margen superior para más compacto */
+    text-align: left; /* Alinear a la izquierda */
+}
+
+.post-list-content .post-meta strong {
+    font-weight: 700; /* Más intenso como en otros sitios */
+}
+
+.post-list-summary {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;; /* Eliminar margen superior para acercar al autor/fecha */
+    line-height: 1.4; /* Reducir interlineado para más compacto */
+}
+
+/* Botón de "Leer más" rediseñado para combinar con el estilo de la página */
+.read-more-button {
+    display: inline-block;
+    padding: 0.25rem 0.8rem; /* Reducir altura del botón */
+    /* background-color: transparent !important; */
+    background-color: var(--nord11) !important;
+    /* color: #005a9c !important; */
+    color: var(--nord1) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid #005a9c !important;
+    border: 1px solid #005a9c !important;
+    border-radius: 2px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    font-family: 'Source Sans 3', sans-serif !important;
+    transition: all 0.2s ease !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 0.5rem !important;
+}
+
+.read-more-button:hover {
+    /*background-color: #005a9c;*/
+    background-color: var(--nord14) !important;
+    color: var(--nord1) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid #005a9c !important;
+    border: 1px solid #005a9c !important;
+    font-weight: 700 !important;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Último Post Destacado en Home (reverted to original overlay style) */
+.latest-post-section {
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Título del post destacado - color estándar, sin azul */
+.latest-post-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.latest-post-section h2 a {
+    text-decoration: none;
+    color: #222;
+    border-bottom: none;
+}
+
+.latest-post-section h2 a:hover {
+    color: var(--nord10);
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.latest-post-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.latest-post-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.50); /* Less transparent, darker background */
+    padding: 1rem 2rem; /* Generous padding */
+    box-sizing: border-box;
+    text-align: left; /* Align text to the left */
+}
+
+
+
+.latest-post-overlay h2 a {
+    color: var(--nord5) !important;
+    text-decoration: none !important;
+}
+
+.latest-post-overlay h2 a:hover {
+    color: var(--nord10) !important;
+    text-decoration: none !important;
+}
+
+.latest-post-overlay .post-meta {
+    font-size: 0.8rem; /* Much smaller */
+    color: #ccc; /* Lighter gray for readability */
+    margin-top: 0; /* Eliminar espacio superior para más compacto */
+    text-align: left; /* Alinear a la izquierda */
+}
+
+.latest-post-overlay .post-meta strong {
+    font-weight: 700; /* Make author bolder */
+}
+
+
+/* Imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Para centrar si es necesario y evitar espacio extra */
+    margin: 1.5rem auto; /* Centrar y añadir margen */
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Pie de Página */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd; /* Borde ligeramente más oscuro */
+    font-size: 1rem; /* Ligeramente más grande */
+    color: #666; /* Color un poco más oscuro */
+    text-align: center;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+/* Post Content Styling - Formato Uniforme para Todos los Posts */
+#content h1:first-of-type {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* ================================ */
+/* ESTILOS ESPECÍFICOS PARA POSTS */
+/* ================================ */
+
+/* Contenedores principales de org-mode */
+.outline-2, .outline-3, .outline-4 {
+    margin-bottom: 2rem;
+}
+
+/* Texto principal de las secciones */
+.outline-text-2, .outline-text-3, .outline-text-4 {
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* Headers principales de los posts */
+#content .outline-2 > h2 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    /*font-family: 'Poppins', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 1.3; */
+    font-size: 1.8rem;
+    color: #444;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    border-left: none !important;
+    padding-left: 0;
+}
+
+/* Subheaders de los posts */
+#content .outline-3 > h3 {
+    font-family: 'Display Sans', sans-serif;
+    /*font-weight: 700;*/
+    line-height: 1.2;
+    /*font-family: 'Poppins', 'Arial', sans-serif; */
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #555;
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e8e8e8;
+    padding-bottom: 0.5rem;
+}
+
+/* Párrafos dentro de las secciones */
+.outline-text-2 p, .outline-text-3 p, .outline-text-4 p {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Primer párrafo de cada sección con un poco más de espaciado */
+.outline-text-2 > p:first-child {
+    margin-top: 0.5rem;
+    font-size: 1.15rem;
+    color: #333;
+}
+
+/* Separación entre secciones principales */
+.outline-2 + .outline-2 {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 2rem;
+    margin-top: 3rem;
+}
+
+/* Meta información del post */
+#content .outline-2:first-child::before {
+    content: "";
+    display: none;
+}
+
+/* Estilos para todos los headers de posts - REEMPLAZADO POR ESTILOS ESPECÍFICOS ARRIBA */
+/* Los estilos específicos para outline-2 y outline-3 están definidos en la sección de posts */
+
+#content h4 {
+    font-weight: 500;
+    color: #555;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Párrafos del contenido */
+#content p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Listas */
+#content ul, #content ol {
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+}
+
+#content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Citas y bloques destacados */
+#content blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #4a90e2;
+    background-color: #f8f9fa;
+    font-style: italic;
+    color: #555;
+}
+
+/* Enlaces dentro del contenido */
+#content a {
+    color: #4a90e2;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#content a:hover {
+    color: #2c5282;
+    border-bottom-color: #2c5282;
+}
+
+/* Código inline y bloques de código */
+#content code {
+    background-color: #f1f3f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+#content pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    border-left: 4px solid #4a90e2;
+}
+
+/* Navegación del post */
+.post-navigation {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-prev, .nav-next {
+    flex: 1;
+}
+
+.nav-next {
+    text-align: right;
+}
+
+.post-navigation a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.post-navigation a:hover {
+    background-color: #2c5282;
+}
+
+/* Responsive para navegación */
+@media (max-width: 768px) {
+    .post-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-prev, .nav-next {
+        text-align: center;
+        flex: none;
+    }
+}
+
+/* Post Content Styling - Formato Uniforme para Todos los Posts */
+.post-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.post-header {
+    text-align: left; /* Alinear a la izquierda */
+    margin-bottom: 1rem; /* Reducir espacio para "enganchar" con el contenido */
+    padding-bottom: 0; /* Eliminar padding inferior */
+    border-bottom: none; /* Eliminar línea inferior */
+}
+
+.post-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 0; /* Eliminar margen inferior para compactar */
+    line-height: 1.2;
+    text-align: left; /* Alinear a la izquierda */
+}
+
+.post-meta {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 0; /* Eliminar margen superior para compactar */
+    margin-bottom: 0.5rem; /* Reducir margen inferior */
+    text-align: left; /* Alinear a la izquierda */
+}
+
+.post-author {
+    margin-right: 1.5rem;
+}
+
+.post-date {
+    margin-right: 1.5rem;
+}
+
+.post-tags {
+    margin-top: 0.5rem;
+}
+
+.post-tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #666;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin: 0.2rem 0.2rem 0 0;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.post-tag:hover {
+    background: #005a9c;
+    color: white;
+}
+
+/* Navegación entre posts */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-previous, .nav-next {
+    flex: 1;
+}
+
+.nav-next {
+    text-align: right;
+}
+
+.nav-link {
+    color: #005a9c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #003d6b;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: #999;
+    display: block;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive para posts */
+@media (max-width: 768px) {
+    .post-title {
+        font-size: 1.8rem;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-next {
+        text-align: left;
+    }
+    
+    .post-meta {
+        font-size: 0.9rem;
+    }
+    
+    .post-author, .post-date {
+        display: block;
+        margin: 0.3rem 0;
+    }
+}
+
+/* --- CORRECCIÓN CRÍTICA: Forzar layout de columnas en posts y home --- */
+.main-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 320px !important;
+    gap: 3rem !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    align-items: start !important;
+    padding: 0 3rem !important;
+}
+.main-columns .posts-column {
+    min-width: 0 !important;
+}
+.main-columns .sidebar {
+    max-width: 320px !important;
+    margin: 0 !important;
+    position: static !important;
+    height: fit-content !important;
+    align-self: start !important;
+}
+@media (max-width: 900px) {
+  .main-columns {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 0 1rem !important;
+  }
+  .main-columns .sidebar {
+    order: 2 !important;
+    margin-top: 2rem !important;
+    max-width: 100% !important;
+  }
+}
+
+/* SELECTORES ESPECÍFICOS PARA ESPACIADO MÍNIMO - MÁXIMA ESPECIFICIDAD */
+.latest-post-overlay h2 {
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 1.6rem !important; /* Más pequeño */
+    font-family: 'Playfair Display', sans-serif !important;
+    font-weight: 300 !important;
+    color: var(--nord5) !important; /* Color Nord 5 */
+    text-shadow: none !important;
+    letter-spacing: 0.5px;
+}
+
+.main-layout .content-area .post-list-content h3,
+.post-list-content h3,
+div.post-list-content h3 {
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.main-layout .content-area .post-list-content .post-meta,
+.post-list-content .post-meta,
+div.post-list-content .post-meta,
+.latest-post-overlay .post-meta,
+div.latest-post-overlay .post-meta {
+    margin: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Fondo Nord Frost para el título 'Últimos Posts' en la lista de posts */
+.post-list-container > p > b > b {
+    display: inline-block;
+    background: var(--frost-gradient);
+    color: #fff;
+    padding: 0.6rem 1.5rem 0.4rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* SELECTORES PARA POSTS INDIVIDUALES */
+.post-header .post-title,
+#content .post-title {
+    margin-bottom: 0 !important;
+    text-align: left !important;
+}
+
+.post-header .post-meta,
+#content .post-meta {
+    margin-top: 0 !important;
+    text-align: left !important;
+}
+
+.post-header .post-author,
+#content .post-author {
+    font-weight: 700 !important;
+}
+
+/* Ajuste: alinear la parte superior de la columna de contenido con la sidebar en posts */
+.main-columns .posts-column {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Eliminar margen superior extra en el título del post */
+.post-header-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+.post-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ajustar la imagen destacada para que no añada espacio extra abajo */
+.main-featured {
+    margin-bottom: 1.5rem !important;
+}
