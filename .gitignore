@@ -1,0 +1,26 @@
+# Archivos generados por org-publish
+public_html/
+
+# Archivos de respaldo de Emacs
+*~
+\#*\#
+.\#*
+
+# Archivos de sistema macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak
+
+# Cache de org-publish (se puede mantener local)
+/.org-timestamps/
+
+# Logs
+*.log

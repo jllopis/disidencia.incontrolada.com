@@ -1,0 +1,36 @@
+#+TITLE: Artículo en Borrador - Ejemplo de Testing
+#+AUTHOR: Joan Llopis
+#+DATE: 2025-07-26
+#+DESCRIPTION: Este es un artículo de prueba para verificar que los posts con borrador no se publican
+#+TAGS: borrador, filosofia, testing
+#+OPTIONS: toc:nil
+
+* Introducción
+
+Este es un artículo de prueba que *no debería ser publicado* porque contiene la etiqueta =borrador= en los tags.
+
+* Contenido del Borrador
+
+** Sección de Prueba
+
+Este artículo está siendo utilizado para verificar que el sistema de publicación respeta la etiqueta =borrador= y no genera el archivo HTML correspondiente.
+
+** Características a Probar
+
+- El archivo no debería aparecer en =public_html/posts/=
+- No debería incluirse en el sitemap
+- No debería aparecer en la lista de posts de la página principal
+
+* Desarrollo del Artículo
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+
+** Subsección
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+* Conclusión
+
+Si este artículo aparece publicado, significa que necesitamos configurar mejor el sistema de exclusión de borradores.
+
+Si no aparece, ¡perfecto! El sistema está funcionando correctamente.

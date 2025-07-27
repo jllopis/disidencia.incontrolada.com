@@ -1,0 +1,45 @@
+#+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil html-preamble:nil
+#+TITLE: Título del Post
+#+DESCRIPTION: Descripción SEO del post para mejorar su posicionamiento en buscadores
+#+AUTHOR: Joan Llopis
+#+DATE: 2025-07-26
+#+TAGS: etiqueta1, etiqueta2, destacado
+
+#+COMMENT: RELACIÓN DE ASPECTO DE IMÁGENES
+#+COMMENT: Para una visualización perfecta en la lista de posts, usa imágenes con relación de aspecto 5:4 (ejemplo: 1000x800px, 500x400px, etc.).
+#+COMMENT: El CSS fuerza el recorte y escalado, pero la relación 5:4 evita espacios vacíos o recortes indeseados.
+
+* Introducción
+
+Aquí va el contenido principal del post. Puedes usar todas las funcionalidades de org-mode:
+
+- Listas
+- *Texto en negrita*
+- /Texto en cursiva/
+- =Código inline=
+
+** Subsección
+
+Puedes añadir subsecciones para organizar mejor el contenido.
+
+** Conclusiones
+
+Resumen final del artículo.
+
+#+BEGIN_COMMENT
+INSTRUCCIONES PARA USAR ESTE TEMPLATE:
+
+1. Copia este archivo: cp templates/post-template.org posts/mi-nuevo-post.org
+2. Edita el TITLE, DESCRIPTION, AUTHOR, DATE y TAGS
+3. Si tienes una imagen, nómbrala igual que el archivo: mi-nuevo-post.png
+4. Escribe tu contenido usando sintaxis org-mode
+5. Ejecuta ./build.sh para generar el sitio
+
+El template automáticamente añadirá:
+- Header del sitio y navegación
+- Metadata del post (autor, fecha) 
+- Imagen de cabecera (si existe)
+- Sidebar con categorías
+- Footer del sitio
+
+#+END_COMMENT

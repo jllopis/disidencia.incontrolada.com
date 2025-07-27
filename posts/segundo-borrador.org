@@ -1,0 +1,18 @@
+#+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil html-preamble:nil
+#+TITLE: Segundo Borrador de Prueba
+#+DESCRIPTION: Este es otro artículo en borrador que no debería publicarse.
+#+AUTHOR: Joan Llopis
+#+DATE: 2025-01-27
+#+TAGS: borrador, test, prueba
+
+* Introducción
+
+Este es otro post de prueba que tiene el tag `borrador` y por tanto no debería aparecer en la publicación final.
+
+* Contenido de Prueba
+
+Este contenido no debería ser visible en el sitio web publicado.
+
+* Conclusión
+
+Si ves este archivo en la web, significa que el sistema de exclusión no está funcionando correctamente.

@@ -1,0 +1,18 @@
+#+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil html-preamble:nil
+#+TITLE: Reflexiones sobre la Filosofía Moderna
+#+DESCRIPTION: Una exploración profunda de las corrientes filosóficas contemporáneas y su relevancia en el mundo actual.
+#+AUTHOR: Joan Llopis
+#+DATE: 2025-07-27
+#+TAGS: filosofía, modernidad, reflexión
+
+* Introducción a la Filosofía Moderna
+
+La filosofía moderna presenta desafíos únicos en nuestro mundo digitalizado. En este artículo exploraremos las principales corrientes de pensamiento.
+
+** El Impacto de la Tecnología
+
+La tecnología ha transformado no solo cómo vivimos, sino también cómo pensamos. Los filósofos contemporáneos deben abordar nuevas cuestiones éticas.
+
+** Conclusiones
+
+Las reflexiones filosóficas siguen siendo relevantes en el siglo XXI, adaptándose a los nuevos contextos sociales y tecnológicos.

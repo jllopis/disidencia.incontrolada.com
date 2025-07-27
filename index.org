@@ -1,0 +1,33 @@
+#+OPTIONS: toc:nil num:nil author:nil creator:nil html-postamble:nil
+#+HTML_HEAD: <meta charset="UTF-8">
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+HTML_HEAD: <meta name="description" content="Blog con artículos que prentenden ser reflexivos, libres y de calidad (sic)">
+#+HTML_HEAD: <meta name="keywords" content="filosofía, blog, reflexiones, pensamiento, artículos">
+#+HTML_HEAD: <meta name="author" content="Joan Llopis">
+#+HTML_HEAD: <title>Disidencia Incontrolada - Reflexiones y Pensamiento</title>
+#+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
+#+HTML_HEAD: <link rel="canonical" href="https://gimlab.net/">
+#+HTML_HEAD: <meta property="og:title" content="Disidencia Incontrolada">
+#+HTML_HEAD: <meta property="og:description" content="Blog con artículos que prentenden ser reflexivos y libres">
+#+HTML_HEAD: <meta property="og:type" content="website">
+#+HTML_HEAD: <meta name="twitter:card" content="summary_large_image">
+
+#+INCLUDE: "./header.html" export html
+
+#+HTML: <div class="main-featured">
+#+INCLUDE: ./featured-post.html export html
+#+HTML: </div>
+
+#+HTML: <div class="main-columns">
+#+HTML:   <div class="posts-column">
+#+HTML:     <h2 class="ultimos-posts-title">Últimos Posts</h2>
+#+INCLUDE: ./post-list.html export html
+#+HTML:   </div>
+#+HTML:   <div class="sidebar">
+#+HTML:     <h2 class="ultimos-posts-title">Categorías</h2>
+#+HTML:     <p><em>Las categorías se generan automáticamente desde los posts.</em></p>
+#+HTML:   </div>
+#+HTML: </div>
+
+#+INCLUDE: "./footer.html" export html

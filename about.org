@@ -1,0 +1,27 @@
+#+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil
+#+HTML_HEAD: <title>Sobre Mí</title>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+#+INCLUDE: "./header.html" export html
+
+#+HTML:     <div class="content-area" style="margin-left: 11rem; margin-right: 11rem;">
+#+HTML:      <aside style="background-color: #f5f5f5; border-left: 4px solid #ccc; padding: 1rem; margin: 2rem 0; font-style: italic; color: #444;">
+#+HTML:          <p style="margin: 0;"><strong>Qvod Nihil Scitvr</strong> —— Que Nada Se Sabe.</p>
+#+HTML:     </aside>
+#+HTML:       <h1>Sobre mí (aproximadamente)</h1>
+#+HTML:     <div class="outline-text-2"> 
+#+HTML:       <p>Nací en una época en la que el término “contenido” aún no había sustituido a “pensamiento”. Cuando descubrí que podía pensar, más o menos, me he aplicado —con esmero y sin resultados visibles— a reflexionar sobre las preguntas que me hacen explotar la cabeza, el tiempo (o su inexistencia), el conocimiento (o la imposibilidad de tener seguridad de conocer), el libre albedrío (o la vida determinista) y la finalidad de la vida (o la total falta de la misma).</p>
+#+HTML:      <p>También me persigue sin poderme sacar de la cabeza, aquella pregunta que lanzo el imitador de Lara (Alfonso Arús): "A los peces, ¿les entra agua en los ojos?" Otro misterio más que no alcanzo a desvelar.</p>
+#+HTML:       <p>Este blog no pretende cambiar el mundo, pero sí evitar que yo tenga que salir demasiado de casa y relacionarme con gente. La procastinación debida, escribiendo cosas que no interesan a nadie. A veces ni siquiera a mi.</p>
+#+HTML:       <p>Aquí encontrarás artículos breves que fingen tener originalidad, y ensayos largos con ínfulas de sesudos sin llegar a ninguna conclusión. A veces hay citas. A veces son de filósofos. A veces son de mi vecina. Otras me las invento. Todo depende del día. Tanto esfuerzo para ni siquiera alcanzar la mediocridad.</p>
+#+HTML:       <p>No tengo newsletter. No tengo merch. No tengo respuestas. No tengo certezas. A veces no tengo ni ganas de vivir. Pero como tampoco tengo mucha vergüenza, aquí estoy, contribuyendo a aumentar las emisiones de CO2. A ver si volvemos al Uno más pronto que tarde.</p>
+#+HTML:       <p>Si después de leer esto decides seguir navegando, recuerda que <em>todo lo que escribo es provisional</em>, como la vida. Que no hay ninguna certeza y que, aunque tampoco estoy seguro de eso, el fin de la vida <strong>no</strong> es ser feliz.</p>
+#+HTML:      <p><small>Contacto: no lo hay. Estoy sumido en la más absoluta y respetuosa indiferencia.</small></p>
+#+HTML:      <blockquote style="font-style: italic; margin: 2rem 0; padding-left: 1rem; border-left: 3px solid #ccc; color: #555;">
+#+HTML:         <p style="margin: 0;">“Yo, por el contrario, reconozco de buena gana mi ignorancia, y destapo la suya más agusto todavía. No sé nada. Pero ellos tampoco.”</p>
+#+HTML:         <footer style="margin-top: 0.5rem; font-size: 0.9rem; color: #888;">— Francisco Sánchez</footer>
+#+HTML:      </blockquote>
+#+HTML:     </div>
+#+HTML: </div>
+
+#+INCLUDE: "./footer.html" export html
