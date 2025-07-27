@@ -2,7 +2,7 @@
 #+TITLE: Reflexiones sobre la Filosofía Moderna
 #+DESCRIPTION: Una exploración profunda de las corrientes filosóficas contemporáneas y su relevancia en el mundo actual.
 #+AUTHOR: Joan Llopis
-#+DATE: 2025-07-27
+#+DATE: 2025-07-26
 #+TAGS: filosofía, modernidad, reflexión
 
 * Introducción a la Filosofía Moderna
