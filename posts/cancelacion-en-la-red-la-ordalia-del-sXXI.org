@@ -3,7 +3,7 @@
 #+DESCRIPTION: La cancelación como nueva ordalía: presión social, moralismo viral y linchamiento digital en tiempos de like y furia.
 #+AUTHOR: Joan Llopis
 #+DATE: 2025-07-27
-#+TAGS: destacado, filosofía, opinión, sociedad
+#+TAGS: destacado, filosofía, opinión, sociedadsi
 
 #+COMMENT: RELACIÓN DE ASPECTO DE IMÁGENES
 #+COMMENT: Para una visualización perfecta en la lista de posts, usa imágenes con relación de aspecto 5:4 (ejemplo: 1000x800px, 500x400px, etc.).
@@ -28,7 +28,7 @@ Las /secuelas/ que padece la persona cancelada evidencian por qué llamamos a es
 * La cancelación vista con ojos escépticos
 No voy a negar que el fenómeno existe. No voy a negar que hay quién lo ha sufrido. Sin embargo, me gustaría al menos tratar de analizar, aunque superficicalmente, de un modo *crítico* las incoherencias e injusticias que presenta la cultura de la cancelación. En actitud escéptica, ni confirmo ni desmiento. Tratemos de /suspender el juicio/ ante las certezas aparentes y *cuestionar las verdades absolutas*. Tengo por cierto que un escéptico difícilmente podría sumarse a una turba canceladora, con su profundo dogmatismo moral y las condenas precipitadas derivadas de la posesión absoluta e inevitable de la verdad. Nada más opuesto a un escéptico. Tratemos pues, de ver con esos ojos las principales *problemáticas* del fenómeno cancelador.
 
-** *Supresión del diálogo y la disidencia
+** Supresión del diálogo y la disidencia
 La cancelación actúa en la práctica como una forma de *censura*. Al silenciar opiniones contrarias o impopulares mediante el escarnio y la intimidación, limita gravemente el debate *público* y coarta la /libertad de expresión/. Para una sociedad democrática, esto es un golpe serio: sin disidencia ni discusión abierta de ideas, el espacio público se empobrece. Desde el escepticismo, que valora la confrontación de perspectivas y la pregunta constante, callar al que piensa diferente es profundamente problemático. El escéptico invitaría más bien a *escuchar* al otro, a confrontar argumentos y contra-argumentos, en lugar de decretar que ciertas posiciones /no merecen ser oídas/ y borrarlas del mapa. Si realmente buscamos la verdad –podría decir un escéptico–, debemos permitir que todas las voces hablen, incluso aquellas con las que discrepamos, porque solo así nuestras propias convicciones se ponen a prueba. Cancelar al discrepante nos encierra en una burbuja de conformidad donde nada puede ser cuestionado, y eso es precisamente lo opuesto al espíritu crítico.
 
 ** Falta de matices y contexto
