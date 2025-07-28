@@ -2,7 +2,7 @@
 #+AUTHOR: Joan Llopis
 #+DATE: 2025-07-26
 #+DESCRIPTION: Este es un artículo de prueba para verificar que los posts con borrador no se publican
-#+TAGS: borrador, filosofia, testing
+#+TAGS: draft, filosofia, testing
 #+OPTIONS: toc:nil
 
 * Introducción
