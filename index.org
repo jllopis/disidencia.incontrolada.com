@@ -30,4 +30,6 @@
 #+HTML:   </div>
 #+HTML: </div>
 
+#+HTML: <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f2cf9817b2d44eb5bce655e491bd7648"}'></script><!-- End Cloudflare Web Analytics -->
+
 #+INCLUDE: "./footer.html" export html
