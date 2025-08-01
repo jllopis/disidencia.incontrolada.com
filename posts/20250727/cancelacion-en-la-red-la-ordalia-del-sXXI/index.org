@@ -5,10 +5,6 @@
 #+DATE: 2025-07-27
 #+TAGS: destacado, filosofía, opinión, sociedadsi
 
-#+COMMENT: RELACIÓN DE ASPECTO DE IMÁGENES
-#+COMMENT: Para una visualización perfecta en la lista de posts, usa imágenes con relación de aspecto 5:4 (ejemplo: 1000x800px, 500x400px, etc.).
-#+COMMENT: El CSS fuerza el recorte y escalado, pero la relación 5:4 evita espacios vacíos o recortes indeseados.
-
 En los últimos años se ha popularizado el término /"cultura de la cancelación"/ para describir un fenómeno social inquietante en las redes sociales. Este fenómeno consiste, a grandes rasgos, en ejercer una *fuerte presión colectiva* –un boicot o rechazo público– contra una persona que ha cometido, supuestamente, alguna falta u ofensa en el espacio digital. Ante una conducta o comentario considerado ofensivo, problemático o moralmente reprobable, se desata una movilización virtual para *"/cancelar/"* al infractor: retirarle el apoyo, llamar al descrédito e incluso exigir su expulsión de la comunidad en línea. Se le podría comparar con un /tribunal popular digital/, espontáneo y sin rostro, que juzga y condena de manera sumaria.
 
 El problema que plantea esta dinámica es profundo. Las consecuencias para quienes sufren la cancelación suelen ser *traumáticas y muy graves*: pérdida de reputación, oportunidades laborales truncadas, acoso masivo e incluso secuelas psicológicas duraderas. Lo paradójico es que muchas veces la cancelación se justifica en nombre del bien y la verdad, pero a menudo termina causando un daño real a personas de carne y hueso. En este ensayo examinaremos críticamente la cultura de la cancelación como una especie de /ordalía moderna/, amplificada por la tecnología. Adoptaremos una perspectiva *escéptica* e informal, explorando cómo un enfoque filosófico escéptico permite revelar las incoherencias y peligros de este nuevo ritual social de nuestro siglo.

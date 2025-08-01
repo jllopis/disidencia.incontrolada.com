@@ -30,13 +30,17 @@
     
     draft-files))
 
-;; Function to generate exclude pattern for draft files
+;; Function to generate exclude pattern for draft files and unwanted files
 (defun gimlab-generate-exclude-pattern ()
-  "Generate regex pattern to exclude draft files."
-  (let ((draft-files (gimlab-get-draft-files)))
-    (if draft-files
-        (concat "\\(" (mapconcat 'regexp-quote draft-files "\\|") "\\)$")
-      "borrador-ejemplo\\.org$"))) ; fallback pattern
+  "Generate regex pattern to exclude draft files and files directly in posts/ directory."
+  (let ((draft-files (gimlab-get-draft-files))
+        ;; Archivos que están directamente en posts/ y no siguen la estructura YYYYMMDD/slug/
+        (unwanted-files '("theindex.org" "theindex.inc" "borrador-ejemplo.org")))
+    ;; Combinar archivos de borrador con archivos no deseados
+    (let ((all-excluded-files (append draft-files unwanted-files)))
+      (if all-excluded-files
+          (concat "\\(" (mapconcat 'regexp-quote all-excluded-files "\\|") "\\)$")
+        "borrador-ejemplo\\.org$\\|theindex\\..*")))) ; fallback pattern
 
 ;; Function to wrap post content with template structure
 
@@ -53,14 +57,14 @@
                  (date (org-export-data (plist-get info :date) info))
                  (header-image (when is-post (gimlab-find-header-image input-file)))
                  (header-html (let ((raw-header (with-temp-buffer
-												  (insert-file-contents (expand-file-name "header.html" gimlab-project-root))
+                          (insert-file-contents (expand-file-name "header.html" gimlab-project-root))
                                                   (buffer-string))))
                                (cond
                                 (is-post (replace-regexp-in-string "<!--RELATIVE-->" "../" raw-header))
                                 (is-home (replace-regexp-in-string "<!--RELATIVE-->" "" raw-header))
                                 (t raw-header))))
                  (footer-html (with-temp-buffer
-								(insert-file-contents (expand-file-name "footer.html" gimlab-project-root))
+                (insert-file-contents (expand-file-name "footer.html" gimlab-project-root))
                                 (buffer-string))))
             (if is-post
                 (concat
@@ -76,11 +80,11 @@
                  "    </div>\n"
                  (if header-image
                      (format
-					  "<div class=\"main-featured\">
+            "<div class=\"main-featured\">
           <img src=\"%s\" alt=\"%s\" class=\"post-header-image\" />
         </div>\n"
-					  header-image title)
-				   "")
+            header-image title)
+           "")
                  "    <div class=\"post-content\">\n"
                  content
                  "    </div>\n"
@@ -145,82 +149,109 @@
                categories "\n")))
 
 (defun gimlab-org-has-tag-p (file tag)
-  "Devuelve t si el archivo FILE tiene el TAG Org correspondiente en su encabezado."
+  "Devuelve t si el archivo FILE tiene el TAG Org correspondiente
+en un encabezado (* ... :tag:) o en la línea #+TAGS:."
   (with-temp-buffer
     (insert-file-contents file)
     (goto-char (point-min))
-    (when (re-search-forward "^\\*+ .*?:\\(.*?\\):" nil t)
-      (let* ((all-tags (match-string 1))
-             (tag-list (split-string all-tags ":" t)))
-        (member tag tag-list)))))
+    (let ((found nil))
+      ;; Buscar encabezados con :tag:
+      (while (and (not found)
+                  (re-search-forward "^\\*+ .*?:\\([^:\n]+\\(?:[:][^:\n]+\\)*\\):" nil t))
+        (let ((tag-list (split-string (match-string 1) ":" t)))
+          (when (member tag tag-list)
+            (setq found t))))
+      ;; Buscar en #+TAGS:
+      (goto-char (point-min))
+      (when (and (not found)
+                 (re-search-forward "^#\\+TAGS:[ \t]*\\(.+\\)" nil t))
+        (let ((tag-list (split-string (match-string 1) "[, \t]+" t)))
+          (when (member tag tag-list)
+            (setq found t))))
+      found)))
 
 (defun gimlab-generate-post-list-html ()
-  "Generate HTML for the post list on the index page."
+  "Genera el HTML de la lista de posts para la página principal."
   (let ((posts '())
         (posts-dir (expand-file-name "posts" gimlab-project-root)))
-
-	;; Recorremos todos los .org bajo posts/
+    ;; Recorremos todos los .org bajo posts/
     (when (file-directory-p posts-dir)
       (dolist (file (directory-files-recursively posts-dir "\\.org$"))
-        (unless (or (string= (file-name-nondirectory file) "sitemap.org")
-                    (gimlab-org-has-tag-p file "draft"))
-          (with-temp-buffer
-            (insert-file-contents file)
-            (let ((title "Sin título")
-                  (date "")
-                  (description "")
-                  (author "")
-                  (file-base (file-name-sans-extension (file-relative-name file posts-dir)))
-                  (img-html ""))
-              (goto-char (point-min))
-              (when (re-search-forward "^#\\+TITLE: \\(.*\\)" nil t)
-                (setq title (match-string 1)))
-              (goto-char (point-min))
-              (when (re-search-forward "^#\\+DATE: \\(.*\\)" nil t)
-                (setq date (match-string 1)))
-              (goto-char (point-min))
-              (when (re-search-forward "^#\\+AUTHOR: \\(.*\\)" nil t)
-                (setq author (match-string 1)))
-              (goto-char (point-min))
-              (when (re-search-forward "^#\\+DESCRIPTION: \\(.*\\)" nil t)
-                (setq description (match-string 1)))
+        (let* ((rel-path (file-relative-name file posts-dir))
+               (components (split-string rel-path "/" t)))
+          ;; Mensajes de depuración
+          (message "Encontrado: %s" file)
+          (message "Components: %S" components)
 
-			  ;; Buscar portada.<ext> en el directorio del post
-			  (let* ((dir     (file-name-directory file))
-					 ;; ruta relativa dentro de posts/, sin slash final
-					 (rel-dir (directory-file-name
-							   (file-relative-name dir posts-dir)))
-					 ;; extensiones a probar
-					 (ext-cands '("jpg" "jpeg" "png" "webp" "gif"))
-					 ;; buscamos la primera extensión que exista
-					 (img-ext (seq-find
-							   (lambda (ext)
-								 (file-exists-p
-								  (expand-file-name
-								   (format "portada.%s" ext) dir)))
-							   ext-cands)))
-				;; construimos img-html sólo si hemos encontrado portada.ext
-				(setq img-html
-					  (if img-ext
-						  (format
-						   "<a href=\"posts/%s/index.html\"><img src=\"posts/%s/portada.%s\" alt=\"Portada del post\"></a>"
-						   rel-dir   ;; enlace al índice del post
-						   rel-dir   ;; ruta de la imagen
-						   img-ext)  ;; extensión encontrada
-						"")))
+          ;; Solo incluir si la ruta es YYYYMMDD/slug/index.org
+          ;; Excluir archivos directamente en posts/ (como theindex.org, borrador-ejemplo.org, etc.)
+          (when (and (= (length components) 3)
+                     (string-match "^[0-9]\\{8\\}$" (nth 0 components))
+                     (string= (nth 2 components) "index.org")
+                     (not (gimlab-org-has-tag-p file "borrador")))
+            (message ">>> INCLUIDO: %s" file)
+            (with-temp-buffer
+              (insert-file-contents file)
+              (let ((title "Sin título")
+                    (date "")
+                    (description "")
+                    (author "")
+                    (file-base (file-name-sans-extension (file-relative-name file posts-dir)))
+                    (img-html ""))
+                (goto-char (point-min))
+                (when (re-search-forward "^#\\+TITLE: \\(.*\\)" nil t)
+                  (setq title (match-string 1)))
+                (goto-char (point-min))
+                (when (re-search-forward "^#\\+DATE: \\(.*\\)" nil t)
+                  (setq date (match-string 1)))
+                (goto-char (point-min))
+                (when (re-search-forward "^#\\+AUTHOR: \\(.*\\)" nil t)
+                  (setq author (match-string 1)))
+                (goto-char (point-min))
+                (when (re-search-forward "^#\\+DESCRIPTION: \\(.*\\)" nil t)
+                  (setq description (match-string 1)))
 
-              (let ((html
-                     (format "<div class=\"post-list-item\">\n  <div class=\"post-list-image-wrapper\">%s</div>\n  <div class=\"post-list-content\">\n    <h3><a href=\"posts/%s.html\">%s</a></h3>\n    <div class=\"post-meta\"><strong>%s</strong> | %s</div>\n    <p class=\"post-list-summary\">%s</p>\n    <a href=\"posts/%s.html\" class=\"read-more-button\">Leer Más</a>\n  </div>\n</div>"
-                             img-html
-                             file-base
-                             title
-                             author
-                             date
-                             description
-                             file-base)))
-                (push html posts))))))
+                ;; Buscar portada.<ext> en el directorio del post
+                (let* ((dir     (file-name-directory file))
+                       ;; ruta relativa dentro de posts/, sin slash final
+                       (rel-dir (directory-file-name
+                                 (file-relative-name dir posts-dir)))
+                       ;; extensiones a probar
+                       (ext-cands '("jpg" "jpeg" "png" "webp" "gif"))
+                       ;; buscamos la primera extensión que exista
+                       (img-ext (seq-find
+                                 (lambda (ext)
+                                   (file-exists-p
+                                    (expand-file-name
+                                     (format "portada.%s" ext) dir)))
+                                 ext-cands)))
+                  ;; construimos img-html sólo si hemos encontrado portada.ext
+                  (setq img-html
+                        (if img-ext
+                            (format
+                             "<a href=\"posts/%s/index.html\"><img src=\"posts/%s/portada.%s\" alt=\"Portada del post\"></a>"
+                             rel-dir   ;; enlace al índice del post
+                             rel-dir   ;; ruta de la imagen
+                             img-ext)  ;; extensión encontrada
+                          "")))
 
-    (mapconcat #'identity (reverse posts) "\n"))))
+                (let ((html
+                       (format "<div class=\"post-list-item\">\n  <div class=\"post-list-image-wrapper\">%s</div>\n  <div class=\"post-list-content\">\n    <h3><a href=\"posts/%s.html\">%s</a></h3>\n    <div class=\"post-meta\"><strong>%s</strong> | %s</div>\n    <p class=\"post-list-summary\">%s</p>\n    <a href=\"posts/%s.html\" class=\"read-more-button\">Leer Más</a>\n  </div>\n</div>"
+                               img-html
+                               file-base
+                               title
+                               author
+                               date
+                               description
+                               file-base)))
+                  (message "HTML generado para %s: %s" file (substring html 0 (min 100 (length html))))
+                  (push html posts))))))))
+
+    ;; Devolver el HTML concatenado o cadena vacía si no hay posts
+    (message "Total posts encontrados: %d" (length posts))
+    (if posts
+        (mapconcat #'identity (reverse posts) "\n")
+      "")))
 
 (defun gimlab-generate-featured-post-html ()
   "Genera el HTML para el post destacado (tag ‘destacado’) o, si no hay, el más reciente."
@@ -233,44 +264,48 @@
       (let* ((dir      (file-name-directory file))
              ;; carpeta relativa: YYYYMMDD/mi-slug
              (rel-dir  (file-relative-name (directory-file-name dir) posts-dir))
-             (rel-url  (format "posts/%s/index.html" rel-dir))
-             title date author tags img-path)
-        ;; Leer metadatos
-        (with-temp-buffer
-          (insert-file-contents file)
-          (goto-char (point-min))
-          (setq title (or (and (re-search-forward "^#\\+TITLE:[ \t]*\\(.*\\)" nil t)
-                               (string-trim (match-string 1)))
-                          "Sin título"))
-          (goto-char (point-min))
-          (setq date  (or (and (re-search-forward "^#\\+DATE:[ \t]*\\(.*\\)" nil t)
-                               (string-trim (match-string 1)))
-                          rel-dir))
-          (goto-char (point-min))
-          (setq author (or (and (re-search-forward "^#\\+AUTHOR:[ \t]*\\(.*\\)" nil t)
-                               (string-trim (match-string 1)))
-                          ""))
-          (goto-char (point-min))
-          (setq tags   (or (and (re-search-forward "^#\\+TAGS:[ \t]*\\(.*\\)" nil t)
-                               (string-trim (match-string 1)))
-                          "")))
-        ;; Buscar portada.<ext>
-        (let* ((exts      '("jpg" "jpeg" "png" "webp" "gif"))
-               (found-ext (seq-find
-                           (lambda (e)
-                             (file-exists-p
-                              (expand-file-name (format "portada.%s" e) dir)))
-                           exts)))
-          (when found-ext
-            (setq img-path (format "/posts/%s/portada.%s" rel-dir found-ext))))
-        ;; Añadir a la lista
-        (push (list :title    title
-                    :date     date
-                    :author   author
-                    :rel-url  rel-url
-                    :img-path img-path
-                    :tags     tags)
-              post-list)))
+             (components (split-string rel-dir "/" t)))
+        ;; Solo procesar si sigue la estructura YYYYMMDD/slug
+        (when (and (= (length components) 2)
+                   (string-match "^[0-9]\\{8\\}$" (nth 0 components)))
+          (let ((rel-url  (format "posts/%s/index.html" rel-dir))
+                title date author tags img-path)
+            ;; Leer metadatos
+            (with-temp-buffer
+              (insert-file-contents file)
+              (goto-char (point-min))
+              (setq title (or (and (re-search-forward "^#\\+TITLE:[ \t]*\\(.*\\)" nil t)
+                                   (string-trim (match-string 1)))
+                              "Sin título"))
+              (goto-char (point-min))
+              (setq date  (or (and (re-search-forward "^#\\+DATE:[ \t]*\\(.*\\)" nil t)
+                                   (string-trim (match-string 1)))
+                              rel-dir))
+              (goto-char (point-min))
+              (setq author (or (and (re-search-forward "^#\\+AUTHOR:[ \t]*\\(.*\\)" nil t)
+                                   (string-trim (match-string 1)))
+                              ""))
+              (goto-char (point-min))
+              (setq tags   (or (and (re-search-forward "^#\\+TAGS:[ \t]*\\(.*\\)" nil t)
+                                   (string-trim (match-string 1)))
+                              "")))
+            ;; Buscar portada.<ext>
+            (let* ((exts      '("jpg" "jpeg" "png" "webp" "gif"))
+                   (found-ext (seq-find
+                               (lambda (e)
+                                 (file-exists-p
+                                  (expand-file-name (format "portada.%s" e) dir)))
+                               exts)))
+              (when found-ext
+                (setq img-path (format "/posts/%s/portada.%s" rel-dir found-ext))))
+            ;; Añadir a la lista
+            (push (list :title    title
+                        :date     date
+                        :author   author
+                        :rel-url  rel-url
+                        :img-path img-path
+                        :tags     tags)
+                  post-list)))))
     ;; Elegir destacado o, si no hay, el más reciente
     (let* ((featured
             (catch 'found
@@ -310,8 +345,8 @@ class=\"latest-post-image\"></a>\n  \
 ;; Set up the project structure with dynamic exclude pattern
 (setq org-publish-project-alist
       `(
-		;; Publicar los posts
-		("gimlab-blog-posts"
+    ;; Publicar los posts
+    ("gimlab-blog-posts"
          :base-directory "posts/"
          :base-extension "org"
          :publishing-directory "public_html/posts/"
@@ -327,7 +362,7 @@ class=\"latest-post-image\"></a>\n  \
          :exclude ,(gimlab-generate-exclude-pattern)
          :filter-body gimlab-post-body-filter)
 
-		;; Páginas estáticas
+    ;; Páginas estáticas
         ("gimlab-static-pages"
          :base-directory "./"
          :base-extension "org"
@@ -342,29 +377,29 @@ class=\"latest-post-image\"></a>\n  \
          :html-head "<link rel=\"stylesheet\" href=\"css/style.css\" type=\"text/css\" />"
          :html-head-include-default-style nil
          :html-head-include-scripts nil
-		 :exclude "posts/.*\\|README\\.org"
-         :makeindex t)
+     :exclude "posts/.*\\|README\\.org\\|theindex\\..*"
+         :makeindex nil)
 
-		("gimlab-sitemap"
-		 :base-directory "./"
-		 :base-extension "org"
-		 :publishing-directory "public_html/"
-		 :recursive nil
-		 :publishing-function org-html-publish-to-html
-		 :auto-sitemap t
-		 :sitemap-filename "sitemap.org"
-		 :sitemap-title "Sitemap"
-		 :exclude ".*"
-		 :include ("sitemap.org")
-		 :auto-preamble t
-		 :section-numbers nil
-		 :with-toc nil
-		 :html-head "<link rel=\"stylesheet\" href=\"/css/style.css\" type=\"text/css\" />"
-		 :html-head-include-default-style nil
-		 :html-head-include-scripts nil
-		 :filter-body (gimlab-post-body-filter)
-		 :filter-final-output (org-html-final-function))
-		
+    ("gimlab-sitemap"
+     :base-directory "./"
+     :base-extension "org"
+     :publishing-directory "public_html/"
+     :recursive nil
+     :publishing-function org-html-publish-to-html
+     :auto-sitemap t
+     :sitemap-filename "sitemap.org"
+     :sitemap-title "Sitemap"
+     :exclude ".*"
+     :include ("sitemap.org")
+     :auto-preamble t
+     :section-numbers nil
+     :with-toc nil
+     :html-head "<link rel=\"stylesheet\" href=\"/css/style.css\" type=\"text/css\" />"
+     :html-head-include-default-style nil
+     :html-head-include-scripts nil
+     :filter-body (gimlab-post-body-filter)
+     :filter-final-output (org-html-final-function))
+    
         ("gimlab-css"
          :base-directory "css/"
          :base-extension "css"
@@ -372,29 +407,28 @@ class=\"latest-post-image\"></a>\n  \
          :recursive t
          :publishing-function org-publish-attachment)
 
-		;; Imágenes globales
+    ;; Imágenes globales
         ("gimlab-img"
          :base-directory "img/"
          :base-extension "jpg\\|jpeg\\|png\\|gif\\|webp\\|svg"
          :publishing-directory "public_html/img/"
          :recursive t
          :publishing-function org-publish-attachment
-         :makeindex t)
+         :exclude "theindex\\..*")
 
-		;; Imágenes por post
+    ;; Imágenes por post
         ("gimlab-posts-img"
          :base-directory "posts/"
          :base-extension "jpg\\|jpeg\\|png\\|gif\\|webp\\|svg"
          :publishing-directory "public_html/posts/"
          :recursive t
-         :publishing-function org-publish-attachment
-         :makeindex t)
+         :publishing-function org-publish-attachment)
 
-		;; Proyecto completo
+    ;; Proyecto completo
         ("gimlab-blog" :components ("gimlab-blog-posts"
                                     "gimlab-static-pages"
-									"gimlab-sitemap"
-									"gimlab-css"
+                  "gimlab-sitemap"
+                  "gimlab-css"
                                     "gimlab-img"
                                     "gimlab-posts-img"))
         ))

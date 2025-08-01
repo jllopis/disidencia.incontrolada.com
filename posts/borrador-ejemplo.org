@@ -1,13 +1,13 @@
-#+TITLE: Artículo en Borrador - Ejemplo de Testing
+#+TITLE: ArtÃ­culo en Borrador - Ejemplo de Testing
 #+AUTHOR: Joan Llopis
 #+DATE: 2025-07-26
-#+DESCRIPTION: Este es un artículo de prueba para verificar que los posts con borrador no se publican
+#+DESCRIPTION: Este es un artÃ­culo de prueba para verificar que los posts con borrador no se publican
 #+TAGS: draft, filosofia, testing
 #+OPTIONS: toc:nil
 
 * Introducción
 
-Este es un artículo de prueba que *no debería ser publicado* porque contiene la etiqueta =borrador= en los tags.
+Este es un artículo de prueba que *no deberá­a ser publicado* porque contiene la etiqueta =borrador= en los tags.
 
 * Contenido del Borrador
 
@@ -17,7 +17,7 @@ Este artículo está siendo utilizado para verificar que el sistema de publicaci
 
 ** Características a Probar
 
-- El archivo no debería aparecer en =public_html/posts/=
+- El archivo no deberá­a aparecer en =public_html/posts/=
 - No debería incluirse en el sitemap
 - No debería aparecer en la lista de posts de la página principal
 
