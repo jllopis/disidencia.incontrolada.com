@@ -4,16 +4,20 @@ compatibility_date = "2024-08-01"
 # Configuración para Cloudflare Pages
 [build]
 command = "apt-get update && apt-get install -y emacs-nox && bash build.sh"
-cwd = "."
-watch_dir = "."
+#cwd = "."
+#watch_dir = "."
 
-[build.upload]
-format = "directory"
-dir = "public_html"
+#[build.upload]
+#format = "directory"
+#dir = "public_html"
+
+[assets]
+directory = "./public_html"
+not_found_handling = "404-page"
 
 # Variables de entorno para producción
 [vars]
 ENVIRONMENT = "production"
 
 # Configuración del proyecto Pages
-pages_build_output_dir = "public_html"
+#pages_build_output_dir = "public_html"
