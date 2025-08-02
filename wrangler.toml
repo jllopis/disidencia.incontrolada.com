@@ -1,23 +1,11 @@
 name = "disidencia-incontrolada"
 compatibility_date = "2024-08-01"
 
-# Configuración para Cloudflare Pages
-[build]
-command = "sudo apt-get install -y emacs-nox && bash build.sh"
-#cwd = "."
-#watch_dir = "."
-
-#[build.upload]
-#format = "directory"
-#dir = "public_html"
-
+# Solo para deployment manual con Wrangler CLI
 [assets]
 directory = "./public_html"
 not_found_handling = "404-page"
 
-# Variables de entorno para producción
+# Variables de entorno para producción  
 [vars]
 ENVIRONMENT = "production"
-
-# Configuración del proyecto Pages
-#pages_build_output_dir = "public_html"
