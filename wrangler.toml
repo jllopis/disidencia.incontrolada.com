@@ -1,0 +1,19 @@
+name = "disidencia-incontrolada"
+compatibility_date = "2024-08-01"
+
+# Configuración para Cloudflare Pages
+[build]
+command = "apt-get update && apt-get install -y emacs-nox && bash build.sh"
+cwd = "."
+watch_dir = "."
+
+[build.upload]
+format = "directory"
+dir = "public_html"
+
+# Variables de entorno para producción
+[vars]
+ENVIRONMENT = "production"
+
+# Configuración del proyecto Pages
+pages_build_output_dir = "public_html"

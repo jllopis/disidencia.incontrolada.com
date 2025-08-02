@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Salir inmediatamente si un comando falla
-set -e
+set -euo pipefail
+
+export TZ=Europe/Madrid
 
 # Directorio de salida
 OUTPUT_DIR="public_html"
