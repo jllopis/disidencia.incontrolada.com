@@ -3,7 +3,7 @@ compatibility_date = "2024-08-01"
 
 # Configuración para Cloudflare Pages
 [build]
-command = "apt-get install -y emacs-nox && bash build.sh"
+command = "sudo apt-get install -y emacs-nox && bash build.sh"
 #cwd = "."
 #watch_dir = "."
 
