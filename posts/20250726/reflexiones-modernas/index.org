@@ -1,13 +1,13 @@
 #+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil html-preamble:nil
 #+TITLE: Reflexiones sobre la Filosofía Moderna
-#+DESCRIPTION: Una exploraciÃ³n profunda de las corrientes filosÃ³ficas contemporÃ¡neas y su relevancia en el mundo actual.
+#+DESCRIPTION: Una exploración profunda de las corrientes filosóficas contemporáneas y su relevancia en el mundo actual.
 #+AUTHOR: LLM
 #+DATE: 2025-07-26
 #+TAGS: filosofia, modernidad, reflexion
 
 * Introducción a la Filosofía Moderna
 
-La filosofía­a moderna presenta desafíos únicos en nuestro mundo digitalizado. En este artículo exploraremos las principales corrientes de pensamiento.
+La filosofía moderna presenta desafíos únicos en nuestro mundo digitalizado. En este artículo exploraremos las principales corrientes de pensamiento.
 
 ** El Impacto de la Tecnología
 
