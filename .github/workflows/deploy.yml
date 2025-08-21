@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages and Cloudflare Pages
+name: Build from emacs org and deploy to Cloudflare Workder
 on:
   push:
     branches:
