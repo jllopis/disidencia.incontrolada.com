@@ -30,10 +30,9 @@ jobs:
           ls -la public_html/
 
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: disidencia-incontrolada
-          # directory: public_html
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
