@@ -1,6 +1,14 @@
 #+OPTIONS: toc:nil num:nil title:nil author:nil creator:nil html-postamble:nil
-#+HTML_HEAD: <title>Sobre Mí</title>
+#+TITLE: Sobre Mí
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
+#+HTML_HEAD: <meta charset="UTF-8">
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+HTML_HEAD: <meta name="description" content="Blog con artículos que prentenden ser reflexivos, libres y de calidad (sic)">
+#+HTML_HEAD: <meta name="keywords" content="filosofía, blog, reflexiones, pensamiento, artículos">
+#+HTML_HEAD: <meta name="author" content="Joan Llopis">
+#+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
+#+HTML_HEAD: <link rel="canonical" href="https://disidencia.incontrolada.com/">
 
 #+INCLUDE: "./header.html" export html
 
