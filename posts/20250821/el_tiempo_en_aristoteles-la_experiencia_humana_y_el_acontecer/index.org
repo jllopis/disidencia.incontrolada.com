@@ -37,28 +37,28 @@ Asimismo, Aristóteles distingue claramente entre el presente, el pasado y el fu
 
 Una de las principales aporías es la divisibilidad infinita del tiempo. Si todo tiempo puede ser dividido, ¿cómo es posible hablar de un “ahora”? ¿No se disuelve el presente en una infinidad de no-presentes? Otra dificultad es la posibilidad de concebir tiempo sin movimiento: si no hay cambio, ¿hay tiempo? Aristóteles reconoce estas tensiones, pero no las considera insuperables. Son, más bien, indicios de que el tiempo es una categoría mixta: pertenece tanto a la realidad física como a la experiencia consciente.
 
-1. *Aporía del presente como no-ser*
+*** 1. *Aporía del presente como no-ser*
 Física IV, 10, 218a1–218a5:
 
 «Pues el "ahora" parece ser una especie de límite del pasado y del futuro, y no una parte del tiempo: lo mismo que el punto no es una parte de la línea.»
 
 Este pasaje expresa la dificultad de concebir el “ahora” como algo que sea, ya que actúa más bien como un límite —no como una parte— entre lo que ya no es (el pasado) y lo que todavía no es (el futuro). El presente, al no tener duración, resulta paradójico como constituyente del tiempo.
 
-2. *Aporía de la divisibilidad infinita del tiempo*
+*** 2. *Aporía de la divisibilidad infinita del tiempo*
 Física IV, 10, 217b30–218a5:
 
 «Si todo tiempo puede ser dividido, y también todo movimiento, entonces no hay un tiempo último ni un ahora último que no se divida.»
 
 Esta reflexión señala la imposibilidad de fijar un “ahora” absoluto. Como el tiempo es divisible sin fin, nunca se alcanza un presente indivisible, lo cual problematiza la existencia del tiempo como una sucesión discreta de momentos.
 
-3. *Aporía del tiempo sin cambio*
+*** 3. *Aporía del tiempo sin cambio*
 Física IV, 11, 219a1–219a5:
 
 «Sin cambio no parece haber tiempo. En los lugares donde nada cambia, no parece haber transcurrido tiempo.»
 
 Aquí Aristóteles vincula esencialmente el tiempo al cambio. Si no hay movimiento, entonces no hay distinción posible entre antes y después, lo que hace que el tiempo parezca inexistente en tal estado.
 
-4. *Aporía de la necesidad del alma para contar el tiempo*
+*** 4. *Aporía de la necesidad del alma para contar el tiempo*
 Física IV, 14, 223a21–223a29:
 
 «Si no hay alguien que lo cuente, no parece haber tiempo, a no ser potencialmente. Porque el número no es sin un alma que lo cuente.»
@@ -67,7 +67,7 @@ Esto conduce a una paradoja ontológica: el tiempo depende de una conciencia cap
 
 * III. Tiempo y experiencia humana
 
-1. *La percepción del tiempo*
+*** *La percepción del tiempo*
 
 Aristóteles sitúa la percepción del tiempo en la intersección entre el mundo y el alma. Para que haya tiempo, no basta con que haya movimiento: debe haber también un sujeto capaz de contarlo. La percepción humana del tiempo es una construcción cognitiva que se basa en la memoria del pasado y la anticipación del futuro. Estas facultades permiten al ser humano distinguir un “antes” y un “después” y por tanto establecer una secuencia.
 
@@ -77,13 +77,13 @@ Aristóteles sitúa la percepción del tiempo en la intersección entre el mundo
 
 Este enfoque pone de relieve un punto crucial: la experiencia del tiempo es subjetiva, incluso si el tiempo como número del movimiento es objetivo. Esta dualidad está en el corazón de la filosofía aristotélica: hay una dimensión objetiva del mundo y una dimensión subjetiva que lo interpreta.
 
-2. *Tiempo, afectividad y vida moral*
+*** *Tiempo, afectividad y vida moral*
 
 El tiempo es también un elemento constitutivo de nuestra vida emocional. La nostalgia por el pasado, la esperanza o el temor por el futuro, el arrepentimiento, todos estos estados afectivos dependen del tiempo. Aristóteles, en su /Ética a Nicómaco/, subraya que la felicidad (=eudaimonia=) requiere tiempo: no se puede juzgar la vida buena en un instante. La virtud, como hábito, se desarrolla a lo largo del tiempo; la prudencia, como deliberación racional, requiere proyectar escenarios futuros.
 
 El tiempo afecta incluso la experiencia del dolor y del placer. Un placer prolongado puede conducir al vicio y un dolor pasajero puede conducir al bien. Por tanto, el tiempo entra en la estructura misma de la acción moral.
 
-3. *Tiempo e identidad*
+*** *Tiempo e identidad*
 
 La conciencia de uno mismo se construye temporalmente. Somos quienes somos porque recordamos y anticipamos, porque tenemos una historia que contar. Esta concepción narrativa de la identidad, anticipada en Aristóteles, ha sido retomada por pensadores como Paul Ricoeur. El tiempo, así, es el hilo que une nuestras acciones, decisiones y transformaciones.
 
