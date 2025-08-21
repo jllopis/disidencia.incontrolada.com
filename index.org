@@ -4,7 +4,7 @@
 #+HTML_HEAD: <meta name="description" content="Blog con artículos que prentenden ser reflexivos, libres y de calidad (sic)">
 #+HTML_HEAD: <meta name="keywords" content="filosofía, blog, reflexiones, pensamiento, artículos">
 #+HTML_HEAD: <meta name="author" content="Joan Llopis">
-#+HTML_HEAD: <title>Disidencia Incontrolada - Reflexiones y Pensamiento</title>
+#+HTML_HEAD: <title>Disidencia Incontrolada - Reflexiones y Pensamientos</title>
 #+HTML_HEAD: <link rel="preconnect" href="https://fonts.googleapis.com">
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
 #+HTML_HEAD: <link rel="canonical" href="https://disidencia.incontrolada.com/">
