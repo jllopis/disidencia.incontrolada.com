@@ -3,7 +3,7 @@
 #+DESCRIPTION: La cancelación como nueva ordalía: presión social, moralismo viral y linchamiento digital en tiempos de like y furia.
 #+AUTHOR: Joan Llopis
 #+DATE: 2025-07-27
-#+TAGS: destacado, filosofía, opinión, sociedadsi
+#+TAGS: destacado, filosofía, opinión, sociedad
 
 En los últimos años se ha popularizado el término /"cultura de la cancelación"/ para describir un fenómeno social inquietante en las redes sociales. Este fenómeno consiste, a grandes rasgos, en ejercer una *fuerte presión colectiva* –un boicot o rechazo público– contra una persona que ha cometido, supuestamente, alguna falta u ofensa en el espacio digital. Ante una conducta o comentario considerado ofensivo, problemático o moralmente reprobable, se desata una movilización virtual para *"/cancelar/"* al infractor: retirarle el apoyo, llamar al descrédito e incluso exigir su expulsión de la comunidad en línea. Se le podría comparar con un /tribunal popular digital/, espontáneo y sin rostro, que juzga y condena de manera sumaria.
 
