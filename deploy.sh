@@ -8,6 +8,6 @@ echo "--- Desplegando manualmente a Cloudflare Pages..."
 bash build.sh
 
 # Desplegar usando wrangler
-npx wrangler pages deploy public_html --project-name=disidencia-incontrolada
+npx wrangler deploy public_html --name=disidencia-incontrolada
 
 echo "--- Despliegue completado!"
