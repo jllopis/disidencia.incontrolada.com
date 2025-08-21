@@ -4,40 +4,36 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v3
-        with:
-          submodules: true
-
-      - name: Checkout destination
-        uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          ref: gh-pages
-          path: built-site
-
-      - name: Instalar Emacs
-        run: sudo apt-get update && sudo apt-get install -y emacs
-
-      - name: Construir sitio con org-publish
-        run: bash build.sh
-
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public_html
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Emacs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y emacs-nox
+            
+      - name: Build static files
+        run: |
+          chmod +x build.sh
+          bash build.sh
+            
+      - name: Verify build output
+        run: |
+          ls -la public_html/
 
       - name: Deploy to Cloudflare Pages
-        if: github.ref == 'refs/heads/main'
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public_html --project-name=disidencia-incontrolada
+          projectName: disidencia-incontrolada
+          directory: public_html
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

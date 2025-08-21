@@ -2,22 +2,19 @@ name = "disidencia-incontrolada"
 compatibility_date = "2024-08-01"
 
 # Configuración para Cloudflare Pages
-[build]
-command = "emacs-nox --version && bash build.sh"
-#cwd = "."
-#watch_dir = "."
-
-#[build.upload]
-#format = "directory"
-#dir = "public_html"
-
-[assets]
-directory = "./public_html"
-not_found_handling = "404-page"
+pages_build_output_dir = "public_html"
 
 # Variables de entorno para producción
 [vars]
 ENVIRONMENT = "production"
 
-# Configuración del proyecto Pages
-#pages_build_output_dir = "public_html"
+# Configuración específica para Pages
+[[pages_build_commands]]
+command = "bash build.sh"
+
+[build]
+command = "bash build.sh"
+
+[assets]
+directory = "./public_html"
+not_found_handling = "404-page"
