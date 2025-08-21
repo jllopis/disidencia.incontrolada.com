@@ -2,18 +2,18 @@ name = "disidencia-incontrolada"
 compatibility_date = "2024-08-01"
 
 # Configuración para Cloudflare Pages
-pages_build_output_dir = "public_html"
+#pages_build_output_dir = "public_html"
 
 # Variables de entorno para producción
 [vars]
 ENVIRONMENT = "production"
 
 # Configuración específica para Pages
-[[pages_build_commands]]
-command = "bash build.sh"
+#[[pages_build_commands]]
+#command = "bash build.sh"
 
-[build]
-command = "bash build.sh"
+#[build]
+#command = "bash build.sh"
 
 [assets]
 directory = "./public_html"

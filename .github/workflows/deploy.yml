@@ -34,6 +34,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: disidencia-incontrolada
-          directory: public_html
+          name: disidencia-incontrolada
+          # directory: public_html
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
