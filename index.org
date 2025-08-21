@@ -1,5 +1,6 @@
-#+OPTIONS: toc:nil num:nil author:nil creator:nil html-postamble:nil
 #+TITLE: Disidencia Incontrolada - Reflexiones y Pensamientos
+#+OPTIONS: toc:nil num:nil author:nil creator:nil html-postamble:nil
+
 #+HTML_HEAD: <meta charset="UTF-8">
 #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 #+HTML_HEAD: <meta name="description" content="Blog con artículos que prentenden ser reflexivos, libres y de calidad (sic)">
